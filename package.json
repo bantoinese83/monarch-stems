@@ -1,0 +1,54 @@
+{
+  "name": "monarch-stems",
+  "version": "0.1.0",
+  "description": "Client wrapper for Stem-Separator-API — easy stem separation",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node --test test/index.test.js",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm run lint && npm run format:check",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "stem-separation",
+    "audio",
+    "stems",
+    "spleeter",
+    "separator"
+  ],
+  "author": "bantoinese83",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "form-data": "^4.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/node": "^25.1.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.15.0"
+  }
+}
