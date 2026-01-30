@@ -1,6 +1,6 @@
 # monarch-stems
 
-[![CI](https://github.com/monarchlabsinc/monarchstems/workflows/CI/badge.svg)](https://github.com/monarchlabsinc/monarchstems/actions/workflows/ci.yml)
+[![CI](https://github.com/bantoinese83/monarch-stems/workflows/CI/badge.svg)](https://github.com/bantoinese83/monarch-stems/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/monarch-stems.svg)](https://www.npmjs.com/package/monarch-stems)
 [![npm downloads](https://img.shields.io/npm/dm/monarch-stems.svg)](https://www.npmjs.com/package/monarch-stems)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
