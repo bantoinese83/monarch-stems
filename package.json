@@ -1,6 +1,6 @@
 {
   "name": "monarch-stems",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Client wrapper for Stem-Separator-API — easy stem separation",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

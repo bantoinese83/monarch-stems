@@ -370,6 +370,12 @@ Use this section to fix most issues without opening a GitHub issue.
 - **Cause**: Unsupported format, invalid options, or corrupt file.
 - **Fix**: Use a supported format (MP3, WAV, FLAC, M4A, AAC, OGG). Ensure `stems` is `'2stems'`, `'4stems'`, or `'5stems'` and `format` is one of the allowed values. Try another file to rule out corruption.
 
+### 4b. API returns 500 with "Expected UploadFile" or "ValueError is not JSON serializable"
+
+- **Cause**: (1) The API’s validation exception handler puts raw `ValueError` (or other exception) objects in the JSON response, which cannot be serialized and causes a 500. (2) The client may have sent the file part without a filename, so the server didn’t recognize it as an upload.
+- **Fix (client)**: This client now sends a filename with the file part when you pass a path or stream. Rebuild and redeploy your app, or upgrade to the latest `monarch-stems`.
+- **Fix (API)** — if you maintain [Stem-Separator-API](https://github.com/bantoinese83/Stem-Separator-API): In `app/main.py`, in `validation_exception_handler`, sanitize the error details before returning. Do **not** put exception objects (e.g. `ctx['error']`) in the response; use only JSON-serializable values (e.g. `str(e)` for messages). See `docs/API-VALIDATION-FIX.md` in this repo for a concrete patch.
+
 ### 5. NETWORK_ERROR or "Failed to fetch" in the browser
 
 - **Cause**: Wrong `baseUrl`, API down, or CORS.

@@ -321,7 +321,9 @@ function createForm(
   if (typeof FormData !== 'undefined' && typeof file === 'string') {
     const form = new FormData() as FormLike;
     const fs = require('fs') as typeof import('fs');
-    form.append('file', fs.createReadStream(file));
+    const path = require('path') as typeof import('path');
+    const streamName = path.basename(file) || filename;
+    form.append('file', fs.createReadStream(file), streamName);
     return { form, formHeaders: {} };
   }
 
@@ -336,7 +338,9 @@ function createForm(
   const form = new FormDataNode();
   if (typeof file === 'string') {
     const fs = require('fs') as typeof import('fs');
-    form.append('file', fs.createReadStream(file));
+    const path = require('path') as typeof import('path');
+    const streamName = path.basename(file) || filename;
+    form.append('file', fs.createReadStream(file), { filename: streamName });
   } else {
     form.append('file', file, { filename });
   }
